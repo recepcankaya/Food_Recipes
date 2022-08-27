@@ -2,8 +2,7 @@ import React from 'react'
 import axios from "axios"
 import { useState, useEffect } from 'react'
 
-function APICall() {
-  const [datum, setDatum] = useState([])
+function APICall({datum, setDatum}) {
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {

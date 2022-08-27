@@ -4,3 +4,12 @@
 .items {
   margin-top: 10%;
 }
+input {
+  width: 18%;
+  position: relative;
+  top: 20;
+  padding: 5px;
+
+  border: 1px solid;
+  border-radius: 3px;
+}
