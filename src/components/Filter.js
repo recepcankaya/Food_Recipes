@@ -1,27 +1,30 @@
-import React from 'react'
-import {useState} from "react"
-
-function Filter({datum}) {
-  const [filterText, setFilterText] = useState({text: ""})
-
-  const handleInput = (e) => {
-    setFilterText({text: e.target.value})
+function Filter({ datum, datumFiltered, setDatumFiltered }) {
+  const handleFilter = (e) => {
+    const filterText = e.target.value.toLowerCase()
+    const wordsToFilter = filterText.split(" ")
+    datumFiltered = datum.filter((item) => {
+      return wordsToFilter.every((word) =>
+        item.title.toLowerCase().includes(word)
+      )
+    })
+    setDatumFiltered(datumFiltered)
   }
 
-  // const handleFilter = datum.filter(item => {
-  //   return Object.keys(item).some(key => {
-  //     return item[key]
-  //       .toString()
-  //       .toLowerCase()
-  //       .includes(filterText.toLocaleLowerCase())
-  //   }) 
-  // })
-
-  // console.log(handleFilter)
-
   return (
-    <div>
-      <input type="text" placeholder="Please enter the name of the the food" onChange={handleInput}  />
+    <div className="container">
+      <h2 id="header">Search</h2>
+      <input
+        type="text"
+        placeholder="Please enter the name of the the food"
+        onChange={handleFilter}
+      />
+
+      {datumFiltered.map((el, id) => (
+        <div key={id} className="items">
+          <img src={el.image} alt={el.title} />
+          <p>{el.title}</p>
+        </div>
+      ))}
     </div>
   )
 }
