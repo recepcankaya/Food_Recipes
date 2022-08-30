@@ -8,7 +8,7 @@ input {
   width: 18%;
   padding: 5px;
 
-  border: none;
+  /* border: none; */
   border-radius: 3px;
 }
 input:focus {
@@ -16,5 +16,4 @@ input:focus {
 }
 #header {
  margin-top: 60px;
- color: rgb(177, 182, 181);
 }
