@@ -20,7 +20,7 @@ function APICall({ setDatum, setDatumFiltered }) {
       setLoading(false)
     }
     fetchAPI()
-  }, [])
+  }, []) //eslint-disable-line
 
   if (loading === true) {
     return <div>Loading...</div>
